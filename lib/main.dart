@@ -5,8 +5,16 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  TextEditingController textEditingController = TextEditingController();
+  var text = "";
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +23,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Тест Flutter'),
         ),
-        body: const Center(
+        body: Center(
           child: AppScaffoldComponent(
-            // text: 'Какой-то текст',
-            text: 'Какой-то текст Какой-то текстКакой-то текстКакой-то текст',
-            isSelected: false,
+            // text: text,
+            text: 'Какой-то текст',
+            // text: 'Какой-то текст Какой-то текстКакой-то текстКакой-то текст',
+            isSelected: true,
           ),
         ),
       ),
